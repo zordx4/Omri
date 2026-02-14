@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>For Omri ❤️</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
 html,body{
   margin:0;
@@ -19,13 +16,11 @@ html,body{
   background-size:400% 400%;
   animation:bgMove 12s infinite;
 }
-
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-
 .page{
   position:absolute;
   width:100%;
@@ -36,14 +31,12 @@ html,body{
   text-align:center;
   transition:.7s;
 }
-
 .hidden{
   opacity:0;
   pointer-events:none;
   transform:scale(.92);
 }
-
-/* Frame with depth */
+/* Frame */
 .frame{
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
   backdrop-filter: blur(15px);
@@ -53,8 +46,6 @@ html,body{
   position:relative;
   box-shadow:0 15px 60px rgba(0,0,0,0.3);
 }
-
-/* Flower & heart decorations in frame */
 .frame:before{
   content:"🌸💖🌹";
   font-size:45px;
@@ -62,7 +53,6 @@ html,body{
   top:15px;
   left:15px;
 }
-
 .frame:after{
   content:"🌹💖🌸";
   font-size:45px;
@@ -80,17 +70,15 @@ button{
   margin:8px;
   cursor:pointer;
 }
-
 .yes{background:white;color:#ff2e63;font-weight:600;}
 .no{background:transparent;border:2px solid white;color:white;}
 
-/* Floating hearts, flowers, sparkles */
+/* Floating elements */
 .float{
   position:absolute;
   bottom:-20px;
   animation:floatUp linear infinite;
 }
-
 @keyframes floatUp{
   to{transform:translateY(-110vh);}
 }
@@ -100,18 +88,16 @@ button{
   font-size:42px;
   animation:pop 0.8s infinite alternate;
 }
-
 @keyframes pop{
   to{transform:scale(1.15);}
 }
 
-/* Confetti */
+/* Confetti & party crackers */
 .confetti{
   position:absolute;
   font-size:24px;
   animation:confettiFall linear forwards;
 }
-
 @keyframes confettiFall{
   to{
     transform:translateY(100vh) rotate(720deg);
@@ -119,7 +105,7 @@ button{
   }
 }
 
-/* Letter style */
+/* Letter */
 .letter{
   background: radial-gradient(circle at 50% 50%, #fff8f8, #ffe5e5);
   color:#333;
@@ -139,7 +125,6 @@ button{
   opacity:0.8;
   animation:floatCartoon 10s linear infinite;
 }
-
 @keyframes floatCartoon{
   0%{transform:translateY(100vh) translateX(0);}
   50%{transform:translateY(50vh) translateX(20px);}
@@ -151,12 +136,10 @@ button{
   font-size:38px;
   animation:glow 1.5s infinite alternate;
 }
-
 @keyframes glow{
   from{text-shadow:0 0 12px white;}
   to{text-shadow:0 0 50px white;}
 }
-
 </style>
 </head>
 <body>
@@ -166,10 +149,8 @@ button{
   <div class="frame">
     <h1>Omri 🌹</h1>
     <h2>Will you be my Valentine ❤️</h2>
-
     <button class="yes" onclick="yesClick()">Yes 💖</button>
     <button class="no" id="noBtn" onclick="no()">No 🙈</button>
-
     <p id="noText"></p>
   </div>
 </div>
@@ -180,7 +161,6 @@ button{
     <h1 class="celebrateText">Yessssss Omri 💖</h1>
     <h2>You made my day ✨</h2>
     <h2>My heart is smiling because of you 🌸💖🌹</h2>
-
     <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
   </div>
 </div>
@@ -190,20 +170,20 @@ button{
   <div class="letter">
     <h2>My dear Omri 💌</h2>
     <p>
-    You bring warmth and softness into my life.  
+    You bring light and warmth into my life.  
     Thinking of you makes my heart calm and happy.  
-    I respect you deeply and care about your feelings.  
-    Your smile means more to me than you know.  
+    I respect you deeply and I care about your feelings.  
+    Your smile is precious to me.  
     <br><br>
-    I am working on myself every day and growing in trading so I can build a strong future.  
-    I want to become someone who can give you comfort and security.  
+    I am working on myself and growing in trading so I can give you a secure and happy future.  
+    I want to be someone you can always rely on.  
     <br><br>
     I dream of coming to Algeria, holding your hand, and building a beautiful life together.  
-    A life full of love, laughter, and gentle moments.
+    A life full of love, laughter, and gentle moments.  
+    You are always in my thoughts and heart.
     </p>
     <span class="cartoon" style="top:50px;left:20px;">👩‍❤️‍👨</span>
     <span class="cartoon" style="bottom:50px;right:40px;">💏</span>
-
     <button class="yes" onclick="go(3,4)">Continue ❤️</button>
   </div>
 </div>
@@ -213,13 +193,13 @@ button{
   <div class="frame">
     <h2>My promises 🌹</h2>
     <p>
-    I will treat you with kindness and respect.  
-    I will keep improving myself for a better future.  
-    I wanted to place your pictures here  
-    but you blocked me on Snapchat 😅  
-    Still you stay beautifully in my thoughts.
+    I will treat you with love and respect.  
+    I will always value your happiness.  
+    I will grow every day to build a life we can be proud of.  
+    <br><br>
+    I wanted to place your pictures here but you blocked me on Snapchat 😅  
+    Still, you are beautifully in my thoughts.
     </p>
-
     <button class="yes" onclick="go(4,5)">Final message 💕</button>
   </div>
 </div>
@@ -230,9 +210,11 @@ button{
     <h1 class="glow">Omri ❤️</h1>
     <h2>
       My care for you is real.  
+      I cannot wait to be with you.  
       Maybe I come sooner than you expect 😉  
     </h2>
     <h3>You are cherished 🌸</h3>
+    <h3 style="margin-top:20px;">Nebghik Omri 💖</h3> <!-- Algerian Arabic -->
   </div>
 </div>
 
@@ -250,10 +232,10 @@ setInterval(()=>{
   setTimeout(()=>e.remove(),9000);
 },300);
 
-/* Confetti burst */
+/* Confetti & party crackers */
 function confettiBurst(){
-  let items=["🎉","✨","💖","🌸","💕"];
-  for(let i=0;i<40;i++){
+  let items=["🎉","✨","💖","🌸","💕","🎊"];
+  for(let i=0;i<50;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.innerHTML=items[Math.floor(Math.random()*items.length)];
@@ -261,11 +243,11 @@ function confettiBurst(){
     c.style.top="-20px";
     c.style.animationDuration=(2+Math.random()*2)+"s";
     document.body.appendChild(c);
-    setTimeout(()=>c.remove(),4000);
+    setTimeout(()=>c.remove(),5000);
   }
 }
 
-/* Yes click */
+/* Yes click with celebration */
 function yesClick(){
   confettiBurst();
   setTimeout(()=>go(1,2),800);
