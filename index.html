@@ -1,216 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine, Omri 💖</title>
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffecd2);
-            color: #d63384;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .hidden { display: none; }
-        .screen { width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-        
-        /* Floating Hearts Animation */
-        .floating-hearts { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .heart { position: absolute; font-size: 2rem; animation: float 6s infinite linear; }
-        @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
-        
-        /* Sparkles */
-        .sparkle { position: absolute; font-size: 1.5rem; animation: sparkle 2s infinite; }
-        @keyframes sparkle { 0%, 100% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1); } }
-        
-        /* Title and Text */
-        h1 { font-size: 2rem; margin-bottom: 20px; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
-        p { font-size: 1.2rem; margin: 10px 0; }
-        .glowing { text-shadow: 0 0 20px #ff69b4; }
-        
-        /* Buttons */
-        .button { padding: 15px 30px; font-size: 1.5rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; margin: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .yes-btn { background: linear-gradient(45deg, #ff6b9d, #c44569); color: white; }
-        .no-btn { background: linear-gradient(45deg, #a8e6cf, #dcedc8); color: #333; }
-        .yes-btn:hover, .no-btn:hover { transform: scale(1.05); }
-        
-        /* Envelope */
-        .envelope { font-size: 3rem; cursor: pointer; transition: transform 0.3s; }
-        .envelope:hover { transform: scale(1.1); }
-        .letter { background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; max-width: 90%; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        
-        /* Final Screen */
-        .final-text { font-size: 1.5rem; margin-bottom: 20px; }
-        
-        /* Mobile Optimizations */
-        @media (max-width: 600px) { h1 { font-size: 1.5rem; } .button { padding: 12px 25px; font-size: 1.2rem; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omri, Be My Valentine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff4e8a,#ff9ac3);
+  color:white;
+}
+
+/* Floating hearts background */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp 8s linear infinite;
+  opacity:.7;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);}
+  100%{transform:translateY(-110vh) scale(1.5);}
+}
+
+/* Glass card */
+.card{
+  backdrop-filter:blur(15px);
+  background:rgba(255,255,255,.15);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  box-shadow:0 10px 40px rgba(0,0,0,.25);
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.btn{
+  padding:14px 26px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+  transition:.3s;
+}
+
+.yes{
+  background:#fff;
+  color:#ff4e8a;
+  font-weight:700;
+}
+
+.no{
+  background:transparent;
+  color:white;
+  border:2px solid white;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* Celebration */
+.celebrate{
+  font-size:26px;
+  animation:pop 1s ease infinite alternate;
+}
+
+@keyframes pop{
+  from{transform:scale(1);}
+  to{transform:scale(1.2);}
+}
+
+/* Envelope */
+.envelope{
+  width:120px;
+  height:80px;
+  background:white;
+  margin:20px auto;
+  position:relative;
+  cursor:pointer;
+  border-radius:8px;
+}
+
+.envelope:before{
+  content:'';
+  position:absolute;
+  width:0;
+  height:0;
+  border-left:60px solid transparent;
+  border-right:60px solid transparent;
+  border-top:40px solid #ff4e8a;
+  top:0;
+  left:0;
+}
+
+.letter{
+  display:none;
+  background:white;
+  color:#333;
+  padding:20px;
+  border-radius:12px;
+  margin-top:15px;
+  animation:fadeIn 1s ease;
+}
+</style>
 </head>
+
 <body>
-    <!-- Floating Hearts and Sparkles -->
-    <div class="floating-hearts" id="hearts"></div>
-    <div class="sparkle" id="sparkle1">✨</div>
-    <div class="sparkle" id="sparkle2">💖</div>
-    <div class="sparkle" id="sparkle3">🌹</div>
 
-    <!-- Opening Screen -->
-    <div class="screen" id="opening">
-        <h1 class="glowing">Omri, will you be my Valentine?</h1>
-        <button class="button yes-btn" id="yesBtn">YES 💖</button>
-        <button class="button no-btn" id="noBtn">NO 🙈</button>
-        <p id="noMessage" class="hidden"></p>
+<div class="card" id="mainCard">
+  <h1>Omri, will you be my Valentine? 💖</h1>
+
+  <button class="btn yes" onclick="yesClicked()">YES 💖</button>
+  <button class="btn no" id="noBtn" onclick="noClicked()">NO 🙈</button>
+
+  <p id="msg" style="margin-top:15px;"></p>
+</div>
+
+<script>
+let noCount=0;
+let messages=[
+"Really Omri? 😢",
+"Are you sure? 💔",
+"Last chance… 🥺",
+"You can't say no to love 😭"
+];
+
+function noClicked(){
+  let btn=document.getElementById("noBtn");
+  let msg=document.getElementById("msg");
+
+  msg.innerText=messages[noCount%messages.length];
+
+  btn.style.transform=`scale(${1-0.15*noCount})`;
+  btn.style.position="relative";
+  btn.style.left=Math.random()*100-50+"px";
+  btn.style.top=Math.random()*40-20+"px";
+
+  noCount++;
+
+  if(noCount>5){
+    btn.style.display="none";
+    msg.innerText="Okay Omri… you must press YES 💕";
+  }
+}
+
+function yesClicked(){
+  let card=document.getElementById("mainCard");
+
+  card.innerHTML=`
+    <h1 class="celebrate">You made me happiest, Omri 💖</h1>
+    <p>Tap the letter 💌</p>
+    <div class="envelope" onclick="openLetter()"></div>
+    <div class="letter" id="letter">
+      <p>
+      My love Omri,<br><br>
+      You are the most special person in my life.  
+      I promise to care for you, respect you, and always make you smile.  
+      I'm working hard on my future — 2026 is our year.  
+      I will come to Algeria to take you with me forever.  
+      I want to spend my whole life with you, building dreams together.<br><br>
+      Forever yours 💖
+      </p>
     </div>
+  `;
+}
 
-    <!-- Celebration Screen -->
-    <div class="screen hidden" id="celebration">
-        <h1 class="glowing">Omri, you just made me the happiest person alive 💖</h1>
-        <p>I knew you’d say yes!</p>
-        <button class="button yes-btn" id="continueBtn">Continue 💕</button>
-    </div>
+function openLetter(){
+  document.getElementById("letter").style.display="block";
+}
 
-    <!-- Love Letter Screen -->
-    <div class="screen hidden" id="letterScreen">
-        <div class="envelope" id="envelope">💌</div>
-        <p>A letter for you, Omri 💌 (tap to open)</p>
-        <div class="letter hidden" id="letter">
-            <p>My love Omri,<br><br>
-            You are the most special person in my life.<br>
-            Being with you makes everything brighter and more meaningful.<br>
-            I promise to care for you, respect you, and always try to make you smile.<br>
-            I’m working hard on my future and my success, and 2026 is our year.<br>
-            I will come to Algeria to take you with me so we can build our life together.<br>
-            I want to spend my whole life with you, creating memories, laughing, and growing together.<br>
-            You are my love, today and always. 💖</p>
-        </div>
-        <button class="button yes-btn" id="finalBtn">Finish 💍</button>
-    </div>
+/* Floating hearts generator */
+setInterval(()=>{
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*25)+"px";
+  document.body.appendChild(heart);
 
-    <!-- Final Screen -->
-    <div class="screen hidden" id="final">
-        <h1 class="glowing">Omri, forever starts with you and me 💍❤️</h1>
-        <p class="final-text">Our journey begins now.</p>
-        <button class="button yes-btn" id="reliveBtn">Relive this moment 💕</button>
-    </div>
+  setTimeout(()=>heart.remove(),8000);
+},300);
+</script>
 
-    <!-- Audio for Background Music (Optional) -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"> <!-- Placeholder; replace with a romantic track URL -->
-    </audio>
-
-    <!-- Confetti Library -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-    <script>
-        // DOM Elements
-        const opening = document.getElementById('opening');
-        const celebration = document.getElementById('celebration');
-        const letterScreen = document.getElementById('letterScreen');
-        const final = document.getElementById('final');
-        const yesBtn = document.getElementById('yesBtn');
-        const noBtn = document.getElementById('noBtn');
-        const noMessage = document.getElementById('noMessage');
-        const continueBtn = document.getElementById('continueBtn');
-        const envelope = document.getElementById('envelope');
-        const letter = document.getElementById('letter');
-        const finalBtn = document.getElementById('finalBtn');
-        const reliveBtn = document.getElementById('reliveBtn');
-        const bgMusic = document.getElementById('bgMusic');
-        const hearts = document.getElementById('hearts');
-
-        // Floating Hearts Generator
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = '💖';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDelay = Math.random() * 6 + 's';
-            hearts.appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }
-        setInterval(createHeart, 1000);
-
-        // No Button Logic
-        let noClicks = 0;
-        const noMessages = [
-            "Really, Omri? Think again 😢",
-            "Are you sure, Omri? My heart can’t take this 💔",
-            "Last chance… don’t break my heart 🥺",
-            "Okay Omri… you’re meant to press YES anyway 💕"
-        ];
-        noBtn.addEventListener('click', () => {
-            noClicks++;
-            noMessage.textContent = noMessages[Math.min(noClicks - 1, noMessages.length - 1)];
-            noMessage.classList.remove('hidden');
-            // Shrink and move NO button
-            noBtn.style.transform = `scale(${Math.max(0.1, 1 - noClicks * 0.2)}) translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)`;
-            // Grow YES button
-            yesBtn.style.transform = `scale(${1 + noClicks * 0.1})`;
-            if (noClicks >= 4) {
-                noBtn.style.opacity = '0';
-                noBtn.disabled = true;
-            }
-        });
-
-        // Yes Button Logic
-        yesBtn.addEventListener('click', () => {
-            opening.classList.add('hidden');
-            celebration.classList.remove('hidden');
-            // Confetti Burst
-            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-            // Play Music
-            bgMusic.play();
-        });
-
-        // Continue to Letter
-        continueBtn.addEventListener('click', () => {
-            celebration.classList.add('hidden');
-            letterScreen.classList.remove('hidden');
-        });
-
-        // Envelope Open Animation
-        envelope.addEventListener('click', () => {
-            envelope.style.transform = 'rotateY(180deg)';
-            setTimeout(() => {
-                letter.classList.remove('hidden');
-                envelope.style.display = 'none';
-            }, 300);
-        });
-
-        // Finish to Final
-        finalBtn.addEventListener('click', () => {
-            letterScreen.classList.add('hidden');
-            final.classList.remove('hidden');
-        });
-
-        // Relive
-        reliveBtn.addEventListener('click', () => {
-            // Reset everything
-            final.classList.add('hidden');
-            opening.classList.remove('hidden');
-            noClicks = 0;
-            noBtn.style.transform = 'scale(1) translate(0,0)';
-            noBtn.style.opacity = '1';
-            noBtn.disabled = false;
-            yesBtn.style.transform = 'scale(1)';
-            noMessage.classList.add('hidden');
-            letter.classList.add('hidden');
-            envelope.style.display = 'block';
-            envelope.style.transform = 'rotateY(0deg)';
-            bgMusic.pause();
-            bgMusic.currentTime = 0;
-        });
-    </script>
 </body>
 </html>
