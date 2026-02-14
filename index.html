@@ -141,8 +141,9 @@ button{
 </head>
 <body>
 
+<!-- Your Local Music File -->
 <audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9e3cbe6c74.mp3?filename=romantic-background-11254.mp3" type="audio/mp3">
+  <source src="no-one-noticed.mp3" type="audio/mp3">
 </audio>
 
 <!-- PAGE 1 -->
@@ -204,7 +205,7 @@ button{
 </div>
 
 <script>
-let icons=["💖","💕","💗","🌸","✨","🌹"];
+let icons=["💖","💕","💗","✨"];
 
 setInterval(()=>{
   let e=document.createElement("div");
@@ -232,7 +233,9 @@ function confettiBurst(){
 }
 
 function yesClick(){
-  document.getElementById("bgMusic").play();
+  let music = document.getElementById("bgMusic");
+  music.volume = 0.5;
+  music.play();
   confettiBurst();
   setTimeout(()=>go(1,2),800);
 }
@@ -245,7 +248,7 @@ function no(){
     "Do not break my heart 🥺",
     "Your heart says yes ❤️"
   ];
-  noText.innerText=msgs[n%msgs.length];
+  document.getElementById("noText").innerText=msgs[n%msgs.length];
   n++;
   if(n>4) document.getElementById("noBtn").style.display="none";
 }
