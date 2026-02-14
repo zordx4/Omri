@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Omri ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 html,body{
   margin:0;
@@ -15,12 +16,19 @@ html,body{
   background:linear-gradient(145deg,#ff2e63,#ff7eb3,#ffc2d1);
   background-size:400% 400%;
   animation:bgMove 12s infinite;
+  transition:background 1s;
 }
+
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
+
+.night{
+  background:linear-gradient(145deg,#141e30,#243b55);
+}
+
 .page{
   position:absolute;
   width:100%;
@@ -29,14 +37,20 @@ html,body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  transition:.7s;
-}
-.hidden{
   opacity:0;
-  pointer-events:none;
-  transform:scale(.92);
+  transform:translateY(20px);
+  transition:opacity .7s, transform .7s;
 }
-/* Frame */
+
+.page:not(.hidden){
+  opacity:1;
+  transform:translateY(0);
+}
+
+.hidden{
+  pointer-events:none;
+}
+
 .frame{
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
   backdrop-filter: blur(15px);
@@ -46,6 +60,7 @@ html,body{
   position:relative;
   box-shadow:0 15px 60px rgba(0,0,0,0.3);
 }
+
 .frame:before{
   content:"🌸💖🌹";
   font-size:45px;
@@ -53,6 +68,7 @@ html,body{
   top:15px;
   left:15px;
 }
+
 .frame:after{
   content:"🌹💖🌸";
   font-size:45px;
@@ -61,7 +77,6 @@ html,body{
   right:15px;
 }
 
-/* Buttons */
 button{
   padding:14px 30px;
   border:none;
@@ -70,34 +85,35 @@ button{
   margin:8px;
   cursor:pointer;
 }
+
 .yes{background:white;color:#ff2e63;font-weight:600;}
 .no{background:transparent;border:2px solid white;color:white;}
 
-/* Floating elements */
 .float{
   position:absolute;
   bottom:-20px;
   animation:floatUp linear infinite;
 }
+
 @keyframes floatUp{
   to{transform:translateY(-110vh);}
 }
 
-/* Celebration text */
 .celebrateText{
   font-size:42px;
   animation:pop 0.8s infinite alternate;
 }
+
 @keyframes pop{
   to{transform:scale(1.15);}
 }
 
-/* Confetti & party crackers */
 .confetti{
   position:absolute;
   font-size:24px;
   animation:confettiFall linear forwards;
 }
+
 @keyframes confettiFall{
   to{
     transform:translateY(100vh) rotate(720deg);
@@ -105,7 +121,6 @@ button{
   }
 }
 
-/* Letter */
 .letter{
   background: radial-gradient(circle at 50% 50%, #fff8f8, #ffe5e5);
   color:#333;
@@ -114,28 +129,13 @@ button{
   max-width:720px;
   line-height:2;
   box-shadow:0 10px 35px rgba(0,0,0,0.25);
-  position:relative;
-  overflow:hidden;
 }
 
-/* Cartoon couple decoration */
-.cartoon{
-  position:absolute;
-  font-size:50px;
-  opacity:0.8;
-  animation:floatCartoon 10s linear infinite;
-}
-@keyframes floatCartoon{
-  0%{transform:translateY(100vh) translateX(0);}
-  50%{transform:translateY(50vh) translateX(20px);}
-  100%{transform:translateY(-50vh) translateX(-20px);}
-}
-
-/* Glow */
 .glow{
   font-size:38px;
   animation:glow 1.5s infinite alternate;
 }
+
 @keyframes glow{
   from{text-shadow:0 0 12px white;}
   to{text-shadow:0 0 50px white;}
@@ -144,68 +144,54 @@ button{
 </head>
 <body>
 
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9e3cbe6c74.mp3?filename=romantic-background-11254.mp3" type="audio/mp3">
+</audio>
+
 <!-- PAGE 1 -->
 <div class="page" id="p1">
   <div class="frame">
-    <h1>Omri</h1>
-    <h2>Will you be my Valentine?</h2>
+    <h1>Omri 🌹</h1>
+    <h2>Will you be my Valentine ❤️</h2>
     <button class="yes" onclick="yesClick()">Yes 💖</button>
     <button class="no" id="noBtn" onclick="no()">No 🙈</button>
+    <button onclick="toggleNight()">🌙 Night Mode</button>
     <p id="noText"></p>
   </div>
 </div>
 
-
-<!-- PAGE 2 CELEBRATION -->
+<!-- PAGE 2 -->
 <div class="page hidden" id="p2">
   <div class="frame">
     <h1 class="celebrateText">Yessssss Omri 💖</h1>
     <h2>You made my day ✨</h2>
-    <h2>My heart is smiling because of you 🌸💖🌹</h2>
     <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
   </div>
 </div>
 
-<!-- PAGE 3 LETTER -->
+<!-- PAGE 3 -->
 <div class="page hidden" id="p3">
   <div class="letter">
     <h2>My dear Omri 💌</h2>
-    <p>
-    You bring light and warmth into my life.  
-    Thinking of you makes my heart calm and happy.  
-    I respect you deeply and I care about your feelings.  
-    Your smile is precious to me.  
-    <br><br>
-    I am working on myself and growing in trading so I can give you a secure and happy future.  
-    I want to be someone you can always rely on.  
-    <br><br>
-    I dream of coming to Algeria, holding your hand, and building a beautiful life together.  
-    A life full of love, laughter, and gentle moments.  
-    You are always in my thoughts and heart.
-    </p>
-    <span class="cartoon" style="top:50px;left:20px;">👩‍❤️‍👨</span>
-    <span class="cartoon" style="bottom:50px;right:40px;">💏</span>
+    <p id="letterText"></p>
     <button class="yes" onclick="go(3,4)">Continue ❤️</button>
   </div>
 </div>
 
-<!-- PAGE 4 PROMISES -->
+<!-- PAGE 4 -->
 <div class="page hidden" id="p4">
   <div class="frame">
     <h2>My promises 🌹</h2>
     <p>
     I will treat you with love and respect.  
     I will always value your happiness.  
-    I will grow every day to build a life we can be proud of.  
-    <br><br>
-    I wanted to place your pictures here but you blocked me on Snapchat 😅  
-    Still, you are beautifully in my thoughts.
+    I will grow every day to build a life we can be proud of.
     </p>
     <button class="yes" onclick="go(4,5)">Final message 💕</button>
   </div>
 </div>
 
-<!-- PAGE 5 FINAL -->
+<!-- PAGE 5 -->
 <div class="page hidden" id="p5">
   <div class="frame">
     <h1 class="glow">Omri ❤️</h1>
@@ -214,14 +200,14 @@ button{
       I cannot wait to be with you.  
       Maybe I come sooner than you expect 😉  
     </h2>
-    <h3>You are cherished 🌸</h3>
-    <h3 style="margin-top:20px;">Nebghik Omri 💖</h3> <!-- Algerian Arabic -->
+    <div id="hug" style="font-size:60px;margin-top:20px;">🤍</div>
+    <h3>Nebghik Omri 💖</h3>
   </div>
 </div>
 
 <script>
-/* Floating flowers and hearts */
 let icons=["🌸","🌹","💐","💖","💕","✨"];
+
 setInterval(()=>{
   let e=document.createElement("div");
   e.className="float";
@@ -233,7 +219,6 @@ setInterval(()=>{
   setTimeout(()=>e.remove(),9000);
 },300);
 
-/* Confetti & party crackers */
 function confettiBurst(){
   let items=["🎉","✨","💖","🌸","💕","🎊"];
   for(let i=0;i<50;i++){
@@ -248,13 +233,12 @@ function confettiBurst(){
   }
 }
 
-/* Yes click with celebration */
 function yesClick(){
+  document.getElementById("bgMusic").play();
   confettiBurst();
   setTimeout(()=>go(1,2),800);
 }
 
-/* No button */
 let n=0;
 function no(){
   let msgs=[
@@ -264,22 +248,56 @@ function no(){
     "Your heart says yes ❤️"
   ];
   noText.innerText=msgs[n%msgs.length];
-  noBtn.style.transform=`scale(${1-n*.12})`;
-  noBtn.style.left=(Math.random()*80-40)+"px";
-  noBtn.style.position="relative";
   n++;
-  if(n>5) noBtn.style.display="none";
+  if(n>4) document.getElementById("noBtn").style.display="none";
 }
 
-/* Navigation */
 function go(a,b){
   for(let i=1;i<=5;i++){
     document.getElementById("p"+i).classList.add("hidden");
   }
   document.getElementById("p"+b).classList.remove("hidden");
+
+  if(b===3) typeWriter();
+  if(b===5){
+    setTimeout(()=>{
+      document.getElementById("hug").innerHTML="🤗💞🤗";
+    },1000);
+  }
+}
+
+const letterMessage = `
+You bring light and warmth into my life.
+Thinking of you makes my heart calm and happy.
+I respect you deeply and I care about your feelings.
+Your smile is precious to me.
+
+I am working on myself and growing so I can give you a secure and happy future.
+I want to be someone you can always rely on.
+
+I dream of holding your hand and building a beautiful life together.
+A life full of love and gentle moments.
+You are always in my thoughts and heart.
+`;
+
+function typeWriter(){
+  let i = 0;
+  let target = document.getElementById("letterText");
+  target.innerHTML="";
+  function typing(){
+    if(i < letterMessage.length){
+      target.innerHTML += letterMessage.charAt(i)==="\n"?"<br>":letterMessage.charAt(i);
+      i++;
+      setTimeout(typing,40);
+    }
+  }
+  typing();
+}
+
+function toggleNight(){
+  document.body.classList.toggle("night");
 }
 </script>
 
 </body>
 </html>
-
