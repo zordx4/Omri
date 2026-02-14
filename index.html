@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Omri ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -31,28 +32,37 @@ html,body{
   width:100%;
   height:100%;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:20px;
   transition:.7s;
 }
 
 .hidden{
   opacity:0;
   pointer-events:none;
-  transform:scale(.9);
+  transform:scale(.92);
 }
 
-/* Card */
-.card{
+/* Romantic Frame */
+.frame{
   background:rgba(255,255,255,0.18);
-  padding:35px;
-  border-radius:20px;
-  max-width:650px;
-  box-shadow:0 10px 40px rgba(0,0,0,.3);
+  padding:40px;
+  border-radius:25px;
+  max-width:680px;
+  position:relative;
+  box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
+
+.frame:before,
+.frame:after{
+  content:"🌹";
+  font-size:28px;
+  position:absolute;
+}
+
+.frame:before{top:10px;left:15px;}
+.frame:after{bottom:10px;right:15px;}
 
 /* Buttons */
 button{
@@ -64,8 +74,17 @@ button{
   cursor:pointer;
 }
 
-.yes{background:white;color:#ff2e63;font-weight:600;}
-.no{background:transparent;border:2px solid white;color:white;}
+.yes{
+  background:white;
+  color:#ff2e63;
+  font-weight:600;
+}
+
+.no{
+  background:transparent;
+  border:2px solid white;
+  color:white;
+}
 
 /* Floating elements */
 .float{
@@ -73,38 +92,41 @@ button{
   bottom:-20px;
   animation:floatUp linear infinite;
 }
+
 @keyframes floatUp{
   to{transform:translateY(-110vh);}
 }
 
-/* Celebration */
+/* Celebration text */
 .big{
-  font-size:32px;
+  font-size:34px;
   animation:pop 1s infinite alternate;
 }
+
 @keyframes pop{
-  to{transform:scale(1.2);}
+  to{transform:scale(1.15);}
 }
 
 /* Letter */
 .letter{
   background:white;
   color:#333;
-  padding:30px;
-  border-radius:15px;
-  max-width:650px;
-  line-height:1.8;
+  padding:35px;
+  border-radius:20px;
+  max-width:700px;
+  line-height:1.9;
   box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* Glow */
+/* Glow ending */
 .glow{
-  font-size:32px;
+  font-size:34px;
   animation:glow 1.5s infinite alternate;
 }
+
 @keyframes glow{
   from{text-shadow:0 0 10px white;}
-  to{text-shadow:0 0 35px white;}
+  to{text-shadow:0 0 40px white;}
 }
 </style>
 </head>
@@ -113,89 +135,92 @@ button{
 
 <!-- PAGE 1 -->
 <div class="page" id="p1">
-  <div class="card">
+  <div class="frame">
     <h1>Omri 🌹</h1>
-    <h2>Will you be my Valentine? ❤️</h2>
+    <h2>Will you be my Valentine ❤️</h2>
 
-    <button class="yes" onclick="yes()">YES 💖</button>
-    <button class="no" id="noBtn" onclick="no()">NO 🙈</button>
+    <button class="yes" onclick="yes()">Yes 💖</button>
+    <button class="no" id="noBtn" onclick="no()">No 🙈</button>
+
     <p id="noText"></p>
   </div>
 </div>
 
-<!-- PAGE 2 CELEBRATION -->
+<!-- PAGE 2 -->
 <div class="page hidden" id="p2">
-  <h1 class="big">YAYYYY Omri!!! 💕</h1>
-  <h2>My heart is dancing for you 💃❤️</h2>
-  <h2>🎉✨🌹🧸💖</h2>
+  <div class="frame">
+    <h1 class="big">Yesss Omri 💕</h1>
+    <h2>You made my heart so happy ✨</h2>
+    <h2>🎉💖🌹🧸✨</h2>
 
-  <button class="yes" onclick="go(2,3)">Open My Letter 💌</button>
+    <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
+  </div>
 </div>
 
-<!-- PAGE 3 LETTER -->
+<!-- PAGE 3 -->
 <div class="page hidden" id="p3">
   <div class="letter">
-    <h2>My Dearest Omri 💌</h2>
+    <h2>My dear Omri 💌</h2>
 
     <p>
-    From the moment you came into my life, something felt different.  
-    You bring warmth, peace, and a kind of happiness that is rare.  
+    You came into my life and brought warmth and peace.  
+    Thinking about you gives me calm and happiness.  
     <br><br>
-    I respect you deeply and care about your heart.  
-    Your smile matters to me more than you know.  
+    I respect you deeply and I care about your heart.  
+    Your feelings matter to me and your smile means more than you know.  
     <br><br>
-    I'm working on myself every day — in life and in trading —  
-    so I can become a man worthy of a future with you.  
+    I am working on myself every day and pushing myself in trading so I can build a strong future.  
+    I want to grow into someone who can give you security and comfort.  
     <br><br>
-    2026 is our year.  
-    I want to come to Algeria, take your hand,  
-    and build a life filled with love, safety, and joy together.  
+    I truly dream of coming to Algeria, holding your hand, and building a beautiful life together.  
+    A life filled with love, laughter, and peaceful moments.  
     <br><br>
-    You are someone I cherish, not just today, but for the future I dream about.
+    You are special to me today and in the future I imagine.
     </p>
-  </div>
 
-  <button class="yes" onclick="go(3,4)">Continue 💕</button>
+    <button class="yes" onclick="go(3,4)">Continue ❤️</button>
+  </div>
 </div>
 
-<!-- PAGE 4 PROMISES -->
+<!-- PAGE 4 -->
 <div class="page hidden" id="p4">
-  <div class="card">
-    <h2>My Promises to You 🌹</h2>
+  <div class="frame">
+    <h2>My promises to you 🌹</h2>
 
     <p>
-    I promise to always treat you with respect and kindness.  
-    I promise to grow, improve, and build a stable future.  
-    I promise to value your feelings and protect your heart.  
+    I will treat you with kindness and respect.  
+    I will always try to make you feel valued.  
+    I will keep improving myself for a better future.  
     <br><br>
-    I wanted to place your pictures here  
-    to make this even more special,  
+    I wanted to add your photos here to make this sweeter,  
     but you blocked me on Snapchat 😅  
-    so I don't have them.  
-    Still, you are beautiful in my mind always.
+    so I do not have them.  
+    Still you stay in my mind beautifully.
     </p>
 
-    <button class="yes" onclick="go(4,5)">Final Message ❤️</button>
+    <button class="yes" onclick="go(4,5)">Final message 💕</button>
   </div>
 </div>
 
-<!-- PAGE 5 FINAL -->
+<!-- PAGE 5 -->
 <div class="page hidden" id="p5">
-  <h1 class="glow">Omri ❤️</h1>
+  <div class="frame">
+    <h1 class="glow">Omri ❤️</h1>
 
-  <h2>
-    No matter where life goes,  
-    my intentions with you are sincere.  
-    <br><br>
-    Maybe I'm coming sooner than you think 😉✈️  
-  </h2>
+    <h2>
+      My intentions with you are sincere.  
+      My care for you is real.  
+      <br><br>
+      Maybe I come sooner than you expect 😉✈️  
+    </h2>
 
-  <h3>Goodbye for now, beautiful 🌹</h3>
+    <h3>You are appreciated and cherished 🌹</h3>
+  </div>
 </div>
 
 <script>
-/* Floating hearts, flowers, bears */
-let icons=["💖","🌹","✨","🧸"];
+/* Floating romantic icons */
+let icons=["💖","🌹","✨","🧸","💕"];
 setInterval(()=>{
   let e=document.createElement("div");
   e.className="float";
@@ -207,14 +232,14 @@ setInterval(()=>{
   setTimeout(()=>e.remove(),9000);
 },300);
 
-/* NO button */
+/* No button */
 let n=0;
 function no(){
   let msgs=[
-    "Really Omri? 😢",
+    "Really Omri 😢",
     "Think again 💔",
-    "Don't break my heart 🥺",
-    "You know you want to say yes ❤️"
+    "Do not break my heart 🥺",
+    "Your heart says yes ❤️"
   ];
   noText.innerText=msgs[n%msgs.length];
   noBtn.style.transform=`scale(${1-n*.12})`;
