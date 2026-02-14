@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,25 +44,32 @@ html,body{
   transform:scale(.92);
 }
 
-/* Romantic Frame */
+/* Frame */
 .frame{
   background:rgba(255,255,255,0.18);
-  padding:40px;
+  padding:45px;
   border-radius:25px;
-  max-width:680px;
+  max-width:700px;
   position:relative;
   box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
 
-.frame:before,
-.frame:after{
-  content:"🌹";
-  font-size:28px;
+/* Flower corners */
+.frame:before{
+  content:"🌸🌹";
+  font-size:40px;
   position:absolute;
+  top:10px;
+  left:15px;
 }
 
-.frame:before{top:10px;left:15px;}
-.frame:after{bottom:10px;right:15px;}
+.frame:after{
+  content:"🌹🌸";
+  font-size:40px;
+  position:absolute;
+  bottom:10px;
+  right:15px;
+}
 
 /* Buttons */
 button{
@@ -97,9 +104,9 @@ button{
   to{transform:translateY(-110vh);}
 }
 
-/* Celebration text */
+/* Celebration */
 .big{
-  font-size:34px;
+  font-size:36px;
   animation:pop 1s infinite alternate;
 }
 
@@ -118,9 +125,9 @@ button{
   box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* Glow ending */
+/* Glow */
 .glow{
-  font-size:34px;
+  font-size:36px;
   animation:glow 1.5s infinite alternate;
 }
 
@@ -149,9 +156,9 @@ button{
 <!-- PAGE 2 -->
 <div class="page hidden" id="p2">
   <div class="frame">
-    <h1 class="big">Yesss Omri 💕</h1>
-    <h2>You made my heart so happy ✨</h2>
-    <h2>🎉💖🌹🧸✨</h2>
+    <h1 class="big">Omri you said yes 💕</h1>
+    <h2>My heart feels full of joy ✨</h2>
+    <h2>🌸💖🌹✨💐</h2>
 
     <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
   </div>
@@ -163,19 +170,19 @@ button{
     <h2>My dear Omri 💌</h2>
 
     <p>
-    You came into my life and brought warmth and peace.  
-    Thinking about you gives me calm and happiness.  
+    You bring warmth and softness into my life.  
+    Thinking of you makes my heart calm.  
     <br><br>
-    I respect you deeply and I care about your heart.  
-    Your feelings matter to me and your smile means more than you know.  
+    I respect you deeply and I care about your feelings.  
+    Your smile matters to me and your happiness matters to me.  
     <br><br>
-    I am working on myself every day and pushing myself in trading so I can build a strong future.  
-    I want to grow into someone who can give you security and comfort.  
+    I am working on myself every day and growing in trading so I can build a strong future.  
+    I want to become someone who can give you comfort and security.  
     <br><br>
     I truly dream of coming to Algeria, holding your hand, and building a beautiful life together.  
-    A life filled with love, laughter, and peaceful moments.  
+    A life full of love, laughter, and gentle moments.  
     <br><br>
-    You are special to me today and in the future I imagine.
+    You are special to me now and in the future I imagine.
     </p>
 
     <button class="yes" onclick="go(3,4)">Continue ❤️</button>
@@ -192,10 +199,10 @@ button{
     I will always try to make you feel valued.  
     I will keep improving myself for a better future.  
     <br><br>
-    I wanted to add your photos here to make this sweeter,  
+    I wanted to place your pictures here to make this sweeter,  
     but you blocked me on Snapchat 😅  
     so I do not have them.  
-    Still you stay in my mind beautifully.
+    Still you stay beautifully in my thoughts.
     </p>
 
     <button class="yes" onclick="go(4,5)">Final message 💕</button>
@@ -211,26 +218,26 @@ button{
       My intentions with you are sincere.  
       My care for you is real.  
       <br><br>
-      Maybe I come sooner than you expect 😉✈️  
+      Maybe I come sooner than you expect 😉  
     </h2>
 
-    <h3>You are appreciated and cherished 🌹</h3>
+    <h3>You are cherished and appreciated 🌸</h3>
   </div>
 </div>
 
 <script>
-/* Floating romantic icons */
-let icons=["💖","🌹","✨","🧸","💕"];
+/* Floating flowers and hearts */
+let icons=["🌸","🌹","💐","💖","💕","✨"];
 setInterval(()=>{
   let e=document.createElement("div");
   e.className="float";
   e.innerHTML=icons[Math.floor(Math.random()*icons.length)];
   e.style.left=Math.random()*100+"vw";
-  e.style.fontSize=(20+Math.random()*25)+"px";
+  e.style.fontSize=(25+Math.random()*35)+"px";
   e.style.animationDuration=(5+Math.random()*5)+"s";
   document.body.appendChild(e);
   setTimeout(()=>e.remove(),9000);
-},300);
+},250);
 
 /* No button */
 let n=0;
