@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@ html,body{
   font-family:Poppins;
   overflow:hidden;
   color:white;
-  background:linear-gradient(135deg,#ff2e63,#ff7eb3,#ffc2d1);
+  background:linear-gradient(145deg,#ff2e63,#ff7eb3,#ffc2d1);
   background-size:400% 400%;
   animation:bgMove 12s infinite;
 }
@@ -26,7 +26,6 @@ html,body{
   100%{background-position:0% 50%}
 }
 
-/* Pages */
 .page{
   position:absolute;
   width:100%;
@@ -44,35 +43,37 @@ html,body{
   transform:scale(.92);
 }
 
-/* Frame */
+/* Frame with depth */
 .frame{
-  background:rgba(255,255,255,0.18);
-  padding:45px;
-  border-radius:25px;
-  max-width:700px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+  backdrop-filter: blur(15px);
+  border-radius:30px;
+  padding:50px;
+  max-width:720px;
   position:relative;
-  box-shadow:0 15px 45px rgba(0,0,0,.35);
+  box-shadow:0 15px 60px rgba(0,0,0,0.3);
 }
 
+/* Flower & heart decorations in frame */
 .frame:before{
-  content:"🌸🌹";
-  font-size:40px;
+  content:"🌸💖🌹";
+  font-size:45px;
   position:absolute;
-  top:10px;
+  top:15px;
   left:15px;
 }
 
 .frame:after{
-  content:"🌹🌸";
-  font-size:40px;
+  content:"🌹💖🌸";
+  font-size:45px;
   position:absolute;
-  bottom:10px;
+  bottom:15px;
   right:15px;
 }
 
 /* Buttons */
 button{
-  padding:14px 28px;
+  padding:14px 30px;
   border:none;
   border-radius:30px;
   font-size:16px;
@@ -83,7 +84,7 @@ button{
 .yes{background:white;color:#ff2e63;font-weight:600;}
 .no{background:transparent;border:2px solid white;color:white;}
 
-/* Floating flowers and hearts */
+/* Floating hearts, flowers, sparkles */
 .float{
   position:absolute;
   bottom:-20px;
@@ -96,7 +97,7 @@ button{
 
 /* Celebration text */
 .celebrateText{
-  font-size:40px;
+  font-size:42px;
   animation:pop 0.8s infinite alternate;
 }
 
@@ -107,7 +108,7 @@ button{
 /* Confetti */
 .confetti{
   position:absolute;
-  font-size:22px;
+  font-size:24px;
   animation:confettiFall linear forwards;
 }
 
@@ -118,29 +119,46 @@ button{
   }
 }
 
-/* Letter */
+/* Letter style */
 .letter{
-  background:white;
+  background: radial-gradient(circle at 50% 50%, #fff8f8, #ffe5e5);
   color:#333;
-  padding:35px;
-  border-radius:20px;
-  max-width:700px;
-  line-height:1.9;
+  padding:40px;
+  border-radius:25px;
+  max-width:720px;
+  line-height:2;
+  box-shadow:0 10px 35px rgba(0,0,0,0.25);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Cartoon couple decoration */
+.cartoon{
+  position:absolute;
+  font-size:50px;
+  opacity:0.8;
+  animation:floatCartoon 10s linear infinite;
+}
+
+@keyframes floatCartoon{
+  0%{transform:translateY(100vh) translateX(0);}
+  50%{transform:translateY(50vh) translateX(20px);}
+  100%{transform:translateY(-50vh) translateX(-20px);}
 }
 
 /* Glow */
 .glow{
-  font-size:36px;
+  font-size:38px;
   animation:glow 1.5s infinite alternate;
 }
 
 @keyframes glow{
-  from{text-shadow:0 0 10px white;}
-  to{text-shadow:0 0 40px white;}
+  from{text-shadow:0 0 12px white;}
+  to{text-shadow:0 0 50px white;}
 }
+
 </style>
 </head>
-
 <body>
 
 <!-- PAGE 1 -->
@@ -161,7 +179,7 @@ button{
   <div class="frame">
     <h1 class="celebrateText">Yessssss Omri 💖</h1>
     <h2>You made my day ✨</h2>
-    <h2>My heart is smiling because of you 🌸</h2>
+    <h2>My heart is smiling because of you 🌸💖🌹</h2>
 
     <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
   </div>
@@ -174,7 +192,6 @@ button{
     <p>
     You bring warmth and softness into my life.  
     Thinking of you makes my heart calm and happy.  
-    <br><br>
     I respect you deeply and care about your feelings.  
     Your smile means more to me than you know.  
     <br><br>
@@ -182,22 +199,23 @@ button{
     I want to become someone who can give you comfort and security.  
     <br><br>
     I dream of coming to Algeria, holding your hand, and building a beautiful life together.  
-    A life full of love and gentle moments.
+    A life full of love, laughter, and gentle moments.
     </p>
+    <span class="cartoon" style="top:50px;left:20px;">👩‍❤️‍👨</span>
+    <span class="cartoon" style="bottom:50px;right:40px;">💏</span>
 
     <button class="yes" onclick="go(3,4)">Continue ❤️</button>
   </div>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 4 PROMISES -->
 <div class="page hidden" id="p4">
   <div class="frame">
     <h2>My promises 🌹</h2>
     <p>
     I will treat you with kindness and respect.  
     I will keep improving myself for a better future.  
-    <br><br>
-    I wanted to place your photos here  
+    I wanted to place your pictures here  
     but you blocked me on Snapchat 😅  
     Still you stay beautifully in my thoughts.
     </p>
@@ -206,7 +224,7 @@ button{
   </div>
 </div>
 
-<!-- PAGE 5 -->
+<!-- PAGE 5 FINAL -->
 <div class="page hidden" id="p5">
   <div class="frame">
     <h1 class="glow">Omri ❤️</h1>
@@ -219,7 +237,7 @@ button{
 </div>
 
 <script>
-/* Floating background flowers */
+/* Floating flowers and hearts */
 let icons=["🌸","🌹","💐","💖","💕","✨"];
 setInterval(()=>{
   let e=document.createElement("div");
