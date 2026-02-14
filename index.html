@@ -3,212 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omri, Be My Valentine</title>
+<title>For Omri 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{
-  height:100vh;
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   background:linear-gradient(135deg,#ff4e8a,#ff9ac3);
   color:white;
+  text-align:center;
 }
 
-/* Floating hearts background */
+/* Pages */
+.page{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  transition:1s;
+}
+
+.hidden{opacity:0;pointer-events:none;transform:scale(.9);}
+
+/* Buttons */
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  margin:10px;
+  cursor:pointer;
+  transition:.3s;
+}
+.yes{background:white;color:#ff4e8a;font-weight:700;}
+.no{background:transparent;border:2px solid white;color:white;}
+button:hover{transform:scale(1.1);}
+
+/* Floating hearts */
 .heart{
   position:absolute;
   bottom:-20px;
-  font-size:20px;
-  animation:floatUp 8s linear infinite;
-  opacity:.7;
+  animation:float 8s linear infinite;
 }
-
-@keyframes floatUp{
-  0%{transform:translateY(0) scale(1);}
-  100%{transform:translateY(-110vh) scale(1.5);}
-}
-
-/* Glass card */
-.card{
-  backdrop-filter:blur(15px);
-  background:rgba(255,255,255,.15);
-  padding:40px;
-  border-radius:20px;
-  text-align:center;
-  width:90%;
-  max-width:420px;
-  box-shadow:0 10px 40px rgba(0,0,0,.25);
-  animation:fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-h1{
-  font-weight:700;
-  margin-bottom:20px;
-}
-
-.btn{
-  padding:14px 26px;
-  border:none;
-  border-radius:30px;
-  font-size:16px;
-  cursor:pointer;
-  margin:10px;
-  transition:.3s;
-}
-
-.yes{
-  background:#fff;
-  color:#ff4e8a;
-  font-weight:700;
-}
-
-.no{
-  background:transparent;
-  color:white;
-  border:2px solid white;
-}
-
-.btn:hover{
-  transform:scale(1.1);
+@keyframes float{
+  to{transform:translateY(-110vh);}
 }
 
 /* Celebration */
 .celebrate{
-  font-size:26px;
-  animation:pop 1s ease infinite alternate;
+  font-size:30px;
+  animation:pop 1s infinite alternate;
 }
-
 @keyframes pop{
-  from{transform:scale(1);}
   to{transform:scale(1.2);}
 }
 
-/* Envelope */
-.envelope{
-  width:120px;
-  height:80px;
-  background:white;
-  margin:20px auto;
-  position:relative;
-  cursor:pointer;
-  border-radius:8px;
-}
-
-.envelope:before{
-  content:'';
-  position:absolute;
-  width:0;
-  height:0;
-  border-left:60px solid transparent;
-  border-right:60px solid transparent;
-  border-top:40px solid #ff4e8a;
-  top:0;
-  left:0;
-}
-
-.letter{
-  display:none;
+/* Letter */
+.letterBox{
   background:white;
   color:#333;
-  padding:20px;
-  border-radius:12px;
-  margin-top:15px;
-  animation:fadeIn 1s ease;
+  padding:25px;
+  border-radius:15px;
+  max-width:500px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+  line-height:1.6;
+}
+
+.flowers{
+  position:absolute;
+  font-size:30px;
+  animation:float 6s linear infinite;
+}
+
+/* Ending glow */
+.glow{
+  font-size:28px;
+  animation:glow 1.5s infinite alternate;
+}
+@keyframes glow{
+  from{text-shadow:0 0 10px white;}
+  to{text-shadow:0 0 30px white;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="card" id="mainCard">
+<!-- PAGE 1 -->
+<div class="page" id="p1">
   <h1>Omri, will you be my Valentine? 💖</h1>
+  <div>
+    <button class="yes" onclick="yes()">YES 💖</button>
+    <button class="no" id="noBtn" onclick="no()">NO 🙈</button>
+  </div>
+  <p id="noMsg"></p>
+</div>
 
-  <button class="btn yes" onclick="yesClicked()">YES 💖</button>
-  <button class="btn no" id="noBtn" onclick="noClicked()">NO 🙈</button>
+<!-- PAGE 2 -->
+<div class="page hidden" id="p2">
+  <h1 class="celebrate">You said YES Omri! 💕</h1>
+  <h2>My heart is celebrating for you 🎉</h2>
+  <button class="yes" onclick="next(2,3)">Open Your Letter 💌</button>
+</div>
 
-  <p id="msg" style="margin-top:15px;"></p>
+<!-- PAGE 3 LETTER -->
+<div class="page hidden" id="p3">
+  <div class="letterBox">
+    <h2>My Love Omri 💌</h2>
+    <p>
+      You are the most special person in my life.  
+      You make my world brighter and meaningful.  
+      I truly care about you and your happiness.  
+      2026 is our year — I'm working hard on myself and my trading so I can build a strong future for us.  
+      I want to come to Algeria and take you with me forever.  
+      I want a life full of memories, smiles, and love with you.
+    </p>
+  </div>
+
+  <button class="yes" onclick="next(3,4)">Continue 💕</button>
+</div>
+
+<!-- PAGE 4 PROMISES -->
+<div class="page hidden" id="p4">
+  <h2>My Promises to You 💖</h2>
+  <p style="max-width:600px;line-height:1.6;">
+    I promise to care for you, respect you, and always try to make you smile.  
+    I'm improving myself every day, especially in trading, so I can become a better man for our future.  
+    I would have added your pictures here to make this more special,  
+    but you blocked me on Snapchat so I don't have them 😅  
+  </p>
+
+  <button class="yes" onclick="next(4,5)">Final Message 💗</button>
+</div>
+
+<!-- PAGE 5 END -->
+<div class="page hidden" id="p5">
+  <h1 class="glow">Omri 💖</h1>
+  <h2>
+    Love you always.  
+    See you in our future.  
+    Maybe I'm coming sooner than you think 😉  
+  </h2>
+  <h3>Goodbye for now, my love ❤️</h3>
 </div>
 
 <script>
-let noCount=0;
-let messages=[
-"Really Omri? 😢",
-"Are you sure? 💔",
-"Last chance… 🥺",
-"You can't say no to love 😭"
-];
-
-function noClicked(){
+/* NO button logic */
+let count=0;
+function no(){
   let btn=document.getElementById("noBtn");
-  let msg=document.getElementById("msg");
-
-  msg.innerText=messages[noCount%messages.length];
-
-  btn.style.transform=`scale(${1-0.15*noCount})`;
-  btn.style.position="relative";
+  let msg=document.getElementById("noMsg");
+  let texts=[
+    "Really? 😢",
+    "Think again 💔",
+    "Don't break my heart 🥺",
+    "You must press YES 😭"
+  ];
+  msg.innerText=texts[count%texts.length];
+  btn.style.transform=`scale(${1-count*.15})`;
   btn.style.left=Math.random()*100-50+"px";
-  btn.style.top=Math.random()*40-20+"px";
-
-  noCount++;
-
-  if(noCount>5){
-    btn.style.display="none";
-    msg.innerText="Okay Omri… you must press YES 💕";
-  }
+  btn.style.top=Math.random()*50-25+"px";
+  btn.style.position="relative";
+  count++;
+  if(count>5) btn.style.display="none";
 }
 
-function yesClicked(){
-  let card=document.getElementById("mainCard");
-
-  card.innerHTML=`
-    <h1 class="celebrate">You made me happiest, Omri 💖</h1>
-    <p>Tap the letter 💌</p>
-    <div class="envelope" onclick="openLetter()"></div>
-    <div class="letter" id="letter">
-      <p>
-      My love Omri,<br><br>
-      You are the most special person in my life.  
-      I promise to care for you, respect you, and always make you smile.  
-      I'm working hard on my future — 2026 is our year.  
-      I will come to Algeria to take you with me forever.  
-      I want to spend my whole life with you, building dreams together.<br><br>
-      Forever yours 💖
-      </p>
-    </div>
-  `;
+/* YES */
+function yes(){
+  next(1,2);
 }
 
-function openLetter(){
-  document.getElementById("letter").style.display="block";
+/* Page switch */
+function next(a,b){
+  document.getElementById("p"+a).classList.add("hidden");
+  document.getElementById("p"+b).classList.remove("hidden");
 }
 
 /* Floating hearts generator */
 setInterval(()=>{
-  let heart=document.createElement("div");
-  heart.className="heart";
-  heart.innerHTML="💖";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(15+Math.random()*25)+"px";
-  document.body.appendChild(heart);
-
-  setTimeout(()=>heart.remove(),8000);
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*30)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
 },300);
+
+/* Flowers on letter page */
+setInterval(()=>{
+  let f=document.createElement("div");
+  f.className="flowers";
+  f.innerHTML="🌸";
+  f.style.left=Math.random()*100+"vw";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),6000);
+},800);
 </script>
 
 </body>
