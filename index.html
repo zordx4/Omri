@@ -54,7 +54,6 @@ html,body{
   box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
 
-/* Flower corners */
 .frame:before{
   content:"🌸🌹";
   font-size:40px;
@@ -81,19 +80,10 @@ button{
   cursor:pointer;
 }
 
-.yes{
-  background:white;
-  color:#ff2e63;
-  font-weight:600;
-}
+.yes{background:white;color:#ff2e63;font-weight:600;}
+.no{background:transparent;border:2px solid white;color:white;}
 
-.no{
-  background:transparent;
-  border:2px solid white;
-  color:white;
-}
-
-/* Floating elements */
+/* Floating flowers and hearts */
 .float{
   position:absolute;
   bottom:-20px;
@@ -104,14 +94,28 @@ button{
   to{transform:translateY(-110vh);}
 }
 
-/* Celebration */
-.big{
-  font-size:36px;
-  animation:pop 1s infinite alternate;
+/* Celebration text */
+.celebrateText{
+  font-size:40px;
+  animation:pop 0.8s infinite alternate;
 }
 
 @keyframes pop{
   to{transform:scale(1.15);}
+}
+
+/* Confetti */
+.confetti{
+  position:absolute;
+  font-size:22px;
+  animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+  to{
+    transform:translateY(100vh) rotate(720deg);
+    opacity:0;
+  }
 }
 
 /* Letter */
@@ -122,7 +126,6 @@ button{
   border-radius:20px;
   max-width:700px;
   line-height:1.9;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 /* Glow */
@@ -146,43 +149,40 @@ button{
     <h1>Omri 🌹</h1>
     <h2>Will you be my Valentine ❤️</h2>
 
-    <button class="yes" onclick="yes()">Yes 💖</button>
+    <button class="yes" onclick="yesClick()">Yes 💖</button>
     <button class="no" id="noBtn" onclick="no()">No 🙈</button>
 
     <p id="noText"></p>
   </div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 CELEBRATION -->
 <div class="page hidden" id="p2">
   <div class="frame">
-    <h1 class="big">Omri you said yes 💕</h1>
-    <h2>My heart feels full of joy ✨</h2>
-    <h2>🌸💖🌹✨💐</h2>
+    <h1 class="celebrateText">Yessssss Omri 💖</h1>
+    <h2>You made my day ✨</h2>
+    <h2>My heart is smiling because of you 🌸</h2>
 
     <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
   </div>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3 LETTER -->
 <div class="page hidden" id="p3">
   <div class="letter">
     <h2>My dear Omri 💌</h2>
-
     <p>
     You bring warmth and softness into my life.  
-    Thinking of you makes my heart calm.  
+    Thinking of you makes my heart calm and happy.  
     <br><br>
-    I respect you deeply and I care about your feelings.  
-    Your smile matters to me and your happiness matters to me.  
+    I respect you deeply and care about your feelings.  
+    Your smile means more to me than you know.  
     <br><br>
     I am working on myself every day and growing in trading so I can build a strong future.  
     I want to become someone who can give you comfort and security.  
     <br><br>
-    I truly dream of coming to Algeria, holding your hand, and building a beautiful life together.  
-    A life full of love, laughter, and gentle moments.  
-    <br><br>
-    You are special to me now and in the future I imagine.
+    I dream of coming to Algeria, holding your hand, and building a beautiful life together.  
+    A life full of love and gentle moments.
     </p>
 
     <button class="yes" onclick="go(3,4)">Continue ❤️</button>
@@ -192,16 +192,13 @@ button{
 <!-- PAGE 4 -->
 <div class="page hidden" id="p4">
   <div class="frame">
-    <h2>My promises to you 🌹</h2>
-
+    <h2>My promises 🌹</h2>
     <p>
     I will treat you with kindness and respect.  
-    I will always try to make you feel valued.  
     I will keep improving myself for a better future.  
     <br><br>
-    I wanted to place your pictures here to make this sweeter,  
+    I wanted to place your photos here  
     but you blocked me on Snapchat 😅  
-    so I do not have them.  
     Still you stay beautifully in my thoughts.
     </p>
 
@@ -213,20 +210,16 @@ button{
 <div class="page hidden" id="p5">
   <div class="frame">
     <h1 class="glow">Omri ❤️</h1>
-
     <h2>
-      My intentions with you are sincere.  
       My care for you is real.  
-      <br><br>
       Maybe I come sooner than you expect 😉  
     </h2>
-
-    <h3>You are cherished and appreciated 🌸</h3>
+    <h3>You are cherished 🌸</h3>
   </div>
 </div>
 
 <script>
-/* Floating flowers and hearts */
+/* Floating background flowers */
 let icons=["🌸","🌹","💐","💖","💕","✨"];
 setInterval(()=>{
   let e=document.createElement("div");
@@ -237,7 +230,28 @@ setInterval(()=>{
   e.style.animationDuration=(5+Math.random()*5)+"s";
   document.body.appendChild(e);
   setTimeout(()=>e.remove(),9000);
-},250);
+},300);
+
+/* Confetti burst */
+function confettiBurst(){
+  let items=["🎉","✨","💖","🌸","💕"];
+  for(let i=0;i<40;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.innerHTML=items[Math.floor(Math.random()*items.length)];
+    c.style.left=Math.random()*100+"vw";
+    c.style.top="-20px";
+    c.style.animationDuration=(2+Math.random()*2)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+
+/* Yes click */
+function yesClick(){
+  confettiBurst();
+  setTimeout(()=>go(1,2),800);
+}
 
 /* No button */
 let n=0;
@@ -257,7 +271,6 @@ function no(){
 }
 
 /* Navigation */
-function yes(){go(1,2);}
 function go(a,b){
   for(let i=1;i<=5;i++){
     document.getElementById("p"+i).classList.add("hidden");
