@@ -51,8 +51,9 @@ html,body{
   backdrop-filter: blur(15px);
   border-radius:30px;
   padding:60px;
-  max-width:700px;
+  max-width:750px;
   box-shadow:0 15px 60px rgba(0,0,0,0.25);
+  position:relative;
 }
 
 button{
@@ -63,26 +64,20 @@ button{
   margin:10px;
   cursor:pointer;
   transition:0.3s;
+  position:relative;
 }
 
 .yes{
   background:white;
   color:#ff4f81;
   font-weight:600;
+  z-index:2;
 }
 
 .no{
   background:transparent;
   border:2px solid white;
   color:white;
-}
-
-.yes:hover{
-  transform:scale(1.05);
-}
-
-.no:hover{
-  background:rgba(255,255,255,0.2);
 }
 
 .float{
@@ -94,15 +89,6 @@ button{
 
 @keyframes floatUp{
   to{transform:translateY(-110vh);}
-}
-
-.celebrateText{
-  font-size:42px;
-  animation:pop 0.8s infinite alternate;
-}
-
-@keyframes pop{
-  to{transform:scale(1.15);}
 }
 
 .confetti{
@@ -119,13 +105,14 @@ button{
 }
 
 .letter{
-  background: #fff0f5;
+  background:#fff0f5;
   color:#333;
-  padding:40px;
+  padding:50px;
   border-radius:25px;
-  max-width:700px;
-  line-height:2;
+  max-width:750px;
+  line-height:1.9;
   box-shadow:0 10px 35px rgba(0,0,0,0.25);
+  font-size:17px;
 }
 
 .glow{
@@ -141,7 +128,6 @@ button{
 </head>
 <body>
 
-<!-- Your Local Music File -->
 <audio id="bgMusic" loop>
   <source src="no-one-noticed.mp3" type="audio/mp3">
 </audio>
@@ -150,57 +136,80 @@ button{
 <div class="page" id="p1">
   <div class="frame">
     <h1 style="font-size:48px;">Omri 💖</h1>
-    <h2 style="margin-top:10px;">Will you be my Valentine ❤️</h2>
+    <h2>Will you be my Valentine ❤️</h2>
     <div style="margin-top:30px;">
       <button class="yes" onclick="yesClick()">Yes 💕</button>
-      <button class="no" id="noBtn" onclick="no()">No 🙈</button>
+      <button class="no" id="noBtn" onclick="moveNo()">No 🙈</button>
     </div>
     <p id="noText"></p>
   </div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2 LETTER -->
 <div class="page hidden" id="p2">
-  <div class="frame">
-    <h1 class="celebrateText">Yessssss Omri 💖</h1>
-    <h2>You made my heart smile ✨</h2>
-    <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
-  </div>
-</div>
-
-<!-- PAGE 3 -->
-<div class="page hidden" id="p3">
   <div class="letter">
     <h2>My dear Omri 💌</h2>
-    <p id="letterText"></p>
-    <button class="yes" onclick="go(3,4)">Continue ❤️</button>
-  </div>
-</div>
-
-<!-- PAGE 4 -->
-<div class="page hidden" id="p4">
-  <div class="frame">
-    <h2>My promises 💗</h2>
     <p>
-    I will treat you with love and respect.  
-    I will value your happiness always.  
-    I will grow every day to build a future we can be proud of.
+    From the moment you entered my life, something inside me became softer and warmer.  
+    You bring a calmness to my heart that I didn’t even know I needed.  
+    Your presence feels peaceful, your smile feels safe, and your energy feels like home.
+
+    <br><br>
+
+    I want you to know that I care about you deeply. Not just with words, but with intention.  
+    I am working on myself every single day. I am learning, growing, and pushing myself in trading  
+    because I want to build stability, strength, and a future that feels secure.  
+
+    <br><br>
+
+    I don’t just dream — I prepare.  
+    I want to become the kind of man you can rely on.  
+    Someone steady. Someone focused. Someone who protects and builds.
+
+    <br><br>
+
+    When I imagine the future, I see growth, success, peace… and you beside me.  
+    And that thought makes me smile in a way nothing else does.
     </p>
-    <button class="yes" onclick="go(4,5)">Final message 💕</button>
+
+    <button class="yes" onclick="go(2,3)">Continue ❤️</button>
   </div>
 </div>
 
-<!-- PAGE 5 -->
-<div class="page hidden" id="p5">
+<!-- PAGE 3 PROMISE -->
+<div class="page hidden" id="p3">
+  <div class="frame">
+    <h2>My promises to you 💗</h2>
+    <p>
+    I promise to treat you with respect and softness.  
+    I promise to value your feelings and protect your heart.  
+    I promise to continue growing into the best version of myself.  
+    I promise to build, not just dream.
+    </p>
+
+    <button class="yes" onclick="go(3,4)">Final message 💕</button>
+  </div>
+</div>
+
+<!-- PAGE 4 FINAL -->
+<div class="page hidden" id="p4">
   <div class="frame">
     <h1 class="glow">Omri ❤️</h1>
     <h2>
-      My care for you is real.  
-      I cannot wait to be with you.  
-      Maybe I come sooner than you expect 😉  
+      I wanted to add your pictures here…  
+      but you blocked me on Snapchat so I don’t have them 😂🙈  
     </h2>
-    <div id="hug" style="font-size:60px;margin-top:20px;">🤍</div>
-    <h3>Nebghik Omri 💖</h3>
+
+    <h3 style="margin-top:30px;">
+      But even without pictures, you live beautifully in my thoughts.  
+      My care for you is real.  
+      My intentions are serious.  
+      And my heart is open.
+    </h3>
+
+    <div style="font-size:60px;margin-top:25px;">🤗💞🤗</div>
+
+    <h2 style="margin-top:20px;">Nebghik Omri 💖</h2>
   </div>
 </div>
 
@@ -240,58 +249,20 @@ function yesClick(){
   setTimeout(()=>go(1,2),800);
 }
 
-let n=0;
-function no(){
-  let msgs=[
-    "Really Omri 😢",
-    "Think again 💔",
-    "Do not break my heart 🥺",
-    "Your heart says yes ❤️"
-  ];
-  document.getElementById("noText").innerText=msgs[n%msgs.length];
-  n++;
-  if(n>4) document.getElementById("noBtn").style.display="none";
+function moveNo(){
+  let btn = document.getElementById("noBtn");
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*70+"%";
+  btn.style.top=Math.random()*60+"%";
+  btn.style.transform="scale(0.8)";
+  document.getElementById("noText").innerText="Hmm… are you sure? 😏";
 }
 
 function go(a,b){
-  for(let i=1;i<=5;i++){
+  for(let i=1;i<=4;i++){
     document.getElementById("p"+i).classList.add("hidden");
   }
   document.getElementById("p"+b).classList.remove("hidden");
-
-  if(b===3) typeWriter();
-  if(b===5){
-    setTimeout(()=>{
-      document.getElementById("hug").innerHTML="🤗💞🤗";
-    },1000);
-  }
-}
-
-const letterMessage = `
-You bring light and warmth into my life.
-Thinking of you makes my heart calm and happy.
-I respect you deeply and care about your feelings.
-Your smile is precious to me.
-
-I am growing and working on myself so I can build a secure future.
-I want to be someone you can always rely on.
-
-I dream of holding your hand and building a beautiful life together.
-You are always in my thoughts and heart.
-`;
-
-function typeWriter(){
-  let i = 0;
-  let target = document.getElementById("letterText");
-  target.innerHTML="";
-  function typing(){
-    if(i < letterMessage.length){
-      target.innerHTML += letterMessage.charAt(i)==="\n"?"<br>":letterMessage.charAt(i);
-      i++;
-      setTimeout(typing,40);
-    }
-  }
-  typing();
 }
 </script>
 
