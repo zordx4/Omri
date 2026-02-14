@@ -13,20 +13,15 @@ html,body{
   font-family:Poppins;
   overflow:hidden;
   color:white;
-  background:linear-gradient(145deg,#ff2e63,#ff7eb3,#ffc2d1);
+  background:linear-gradient(135deg,#ff8fb1,#ff6f91,#ff4f81);
   background-size:400% 400%;
-  animation:bgMove 12s infinite;
-  transition:background 1s;
+  animation:bgMove 10s infinite;
 }
 
 @keyframes bgMove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
-}
-
-.night{
-  background:linear-gradient(145deg,#141e30,#243b55);
 }
 
 .page{
@@ -52,29 +47,12 @@ html,body{
 }
 
 .frame{
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(15px);
   border-radius:30px;
-  padding:50px;
-  max-width:720px;
-  position:relative;
-  box-shadow:0 15px 60px rgba(0,0,0,0.3);
-}
-
-.frame:before{
-  content:"🌸💖🌹";
-  font-size:45px;
-  position:absolute;
-  top:15px;
-  left:15px;
-}
-
-.frame:after{
-  content:"🌹💖🌸";
-  font-size:45px;
-  position:absolute;
-  bottom:15px;
-  right:15px;
+  padding:60px;
+  max-width:700px;
+  box-shadow:0 15px 60px rgba(0,0,0,0.25);
 }
 
 button{
@@ -82,17 +60,36 @@ button{
   border:none;
   border-radius:30px;
   font-size:16px;
-  margin:8px;
+  margin:10px;
   cursor:pointer;
+  transition:0.3s;
 }
 
-.yes{background:white;color:#ff2e63;font-weight:600;}
-.no{background:transparent;border:2px solid white;color:white;}
+.yes{
+  background:white;
+  color:#ff4f81;
+  font-weight:600;
+}
+
+.no{
+  background:transparent;
+  border:2px solid white;
+  color:white;
+}
+
+.yes:hover{
+  transform:scale(1.05);
+}
+
+.no:hover{
+  background:rgba(255,255,255,0.2);
+}
 
 .float{
   position:absolute;
   bottom:-20px;
   animation:floatUp linear infinite;
+  opacity:0.8;
 }
 
 @keyframes floatUp{
@@ -122,11 +119,11 @@ button{
 }
 
 .letter{
-  background: radial-gradient(circle at 50% 50%, #fff8f8, #ffe5e5);
+  background: #fff0f5;
   color:#333;
   padding:40px;
   border-radius:25px;
-  max-width:720px;
+  max-width:700px;
   line-height:2;
   box-shadow:0 10px 35px rgba(0,0,0,0.25);
 }
@@ -151,11 +148,12 @@ button{
 <!-- PAGE 1 -->
 <div class="page" id="p1">
   <div class="frame">
-    <h1>Omri 🌹</h1>
-    <h2>Will you be my Valentine ❤️</h2>
-    <button class="yes" onclick="yesClick()">Yes 💖</button>
-    <button class="no" id="noBtn" onclick="no()">No 🙈</button>
-    <button onclick="toggleNight()">🌙 Night Mode</button>
+    <h1 style="font-size:48px;">Omri 💖</h1>
+    <h2 style="margin-top:10px;">Will you be my Valentine ❤️</h2>
+    <div style="margin-top:30px;">
+      <button class="yes" onclick="yesClick()">Yes 💕</button>
+      <button class="no" id="noBtn" onclick="no()">No 🙈</button>
+    </div>
     <p id="noText"></p>
   </div>
 </div>
@@ -164,7 +162,7 @@ button{
 <div class="page hidden" id="p2">
   <div class="frame">
     <h1 class="celebrateText">Yessssss Omri 💖</h1>
-    <h2>You made my day ✨</h2>
+    <h2>You made my heart smile ✨</h2>
     <button class="yes" onclick="go(2,3)">Open my letter 💌</button>
   </div>
 </div>
@@ -181,11 +179,11 @@ button{
 <!-- PAGE 4 -->
 <div class="page hidden" id="p4">
   <div class="frame">
-    <h2>My promises 🌹</h2>
+    <h2>My promises 💗</h2>
     <p>
     I will treat you with love and respect.  
-    I will always value your happiness.  
-    I will grow every day to build a life we can be proud of.
+    I will value your happiness always.  
+    I will grow every day to build a future we can be proud of.
     </p>
     <button class="yes" onclick="go(4,5)">Final message 💕</button>
   </div>
@@ -206,7 +204,7 @@ button{
 </div>
 
 <script>
-let icons=["🌸","🌹","💐","💖","💕","✨"];
+let icons=["💖","💕","💗","🌸","✨","🌹"];
 
 setInterval(()=>{
   let e=document.createElement("div");
@@ -214,14 +212,14 @@ setInterval(()=>{
   e.innerHTML=icons[Math.floor(Math.random()*icons.length)];
   e.style.left=Math.random()*100+"vw";
   e.style.fontSize=(25+Math.random()*35)+"px";
-  e.style.animationDuration=(5+Math.random()*5)+"s";
+  e.style.animationDuration=(6+Math.random()*6)+"s";
   document.body.appendChild(e);
-  setTimeout(()=>e.remove(),9000);
-},300);
+  setTimeout(()=>e.remove(),12000);
+},400);
 
 function confettiBurst(){
-  let items=["🎉","✨","💖","🌸","💕","🎊"];
-  for(let i=0;i<50;i++){
+  let items=["🎉","✨","💖","💕"];
+  for(let i=0;i<40;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.innerHTML=items[Math.floor(Math.random()*items.length)];
@@ -269,14 +267,13 @@ function go(a,b){
 const letterMessage = `
 You bring light and warmth into my life.
 Thinking of you makes my heart calm and happy.
-I respect you deeply and I care about your feelings.
+I respect you deeply and care about your feelings.
 Your smile is precious to me.
 
-I am working on myself and growing so I can give you a secure and happy future.
+I am growing and working on myself so I can build a secure future.
 I want to be someone you can always rely on.
 
 I dream of holding your hand and building a beautiful life together.
-A life full of love and gentle moments.
 You are always in my thoughts and heart.
 `;
 
@@ -292,10 +289,6 @@ function typeWriter(){
     }
   }
   typing();
-}
-
-function toggleNight(){
-  document.body.classList.toggle("night");
 }
 </script>
 
