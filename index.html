@@ -10,12 +10,12 @@
 html,body{
   margin:0;
   height:100%;
-  font-family:Poppins;
+  font-family:Poppins, sans-serif;
   overflow:hidden;
   color:white;
   background:linear-gradient(135deg,#ff8fb1,#ff6f91,#ff4f81);
   background-size:400% 400%;
-  animation:bgMove 10s infinite;
+  animation:bgMove 12s ease infinite;
 }
 
 @keyframes bgMove{
@@ -34,7 +34,7 @@ html,body{
   text-align:center;
   opacity:0;
   transform:translateY(20px);
-  transition:opacity .7s, transform .7s;
+  transition:opacity .7s ease, transform .7s ease;
 }
 
 .page:not(.hidden){
@@ -47,31 +47,33 @@ html,body{
 }
 
 .frame{
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(15px);
-  border-radius:30px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px);
+  border-radius:28px;
   padding:60px;
-  max-width:750px;
-  box-shadow:0 15px 60px rgba(0,0,0,0.25);
+  max-width:760px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
   position:relative;
 }
 
 button{
-  padding:14px 30px;
+  padding:14px 32px;
   border:none;
   border-radius:30px;
   font-size:16px;
   margin:10px;
   cursor:pointer;
-  transition:0.3s;
-  position:relative;
+  transition:0.3s ease;
 }
 
 .yes{
   background:white;
   color:#ff4f81;
   font-weight:600;
-  z-index:2;
+}
+
+.yes:hover{
+  transform:scale(1.05);
 }
 
 .no{
@@ -105,25 +107,25 @@ button{
 }
 
 .letter{
-  background:#fff0f5;
+  background:#fff4f8;
   color:#333;
   padding:50px;
   border-radius:25px;
-  max-width:750px;
+  max-width:760px;
   line-height:1.9;
-  box-shadow:0 10px 35px rgba(0,0,0,0.25);
+  box-shadow:0 15px 40px rgba(0,0,0,0.25);
   font-size:17px;
   text-align:left;
 }
 
 .glow{
-  font-size:38px;
-  animation:glow 1.5s infinite alternate;
+  font-size:36px;
+  animation:glow 1.8s infinite alternate;
 }
 
 @keyframes glow{
-  from{text-shadow:0 0 12px white;}
-  to{text-shadow:0 0 50px white;}
+  from{text-shadow:0 0 10px white;}
+  to{text-shadow:0 0 40px white;}
 }
 </style>
 </head>
@@ -135,13 +137,13 @@ button{
 
 <div class="page" id="p1">
   <div class="frame">
-    <h1 style="font-size:48px;">Omri 💖</h1>
+    <h1 style="font-size:48px; margin-bottom:10px;">Omri 💖</h1>
     <h2>Will you be my Valentine ❤️</h2>
-    <div style="margin-top:30px;">
+    <div style="margin-top:35px;">
       <button class="yes" onclick="yesClick()">Yes 💕</button>
       <button class="no" id="noBtn" onclick="moveNo()">No 🙈</button>
     </div>
-    <p id="noText"></p>
+    <p id="noText" style="margin-top:15px;"></p>
   </div>
 </div>
 
@@ -149,28 +151,28 @@ button{
   <div class="letter">
     <h2 style="text-align:center;">My dear Omri 💌</h2>
     <p>
-From the moment you entered my life something inside me became softer and warmer.  
-Even with the distance between us I feel connected to you in a way that is rare and real.  
+From the moment you entered my life something inside me became calmer and warmer.  
+Even with the distance between us I feel connected to you in a way that feels rare and genuine.  
 You are in Algeria and I am here yet somehow my heart still feels close to yours.
 
 <br><br>
 
 I want you to understand something important.  
-I am not just dreaming about us.  
-I am preparing for us.  
+I am not just imagining a future.  
+I am preparing for one.  
 Every day I am working on myself improving my mindset growing in trading building discipline and stability.  
 Not only for success but so I can create a life strong enough to support the future I see with you.
 
 <br><br>
 
-I want to come to Algeria one day look into your eyes in real life hold your hand and finally close this distance between us.  
+One day I want to come to Algeria look into your eyes in real life hold your hand and close the distance between us.  
 And when I come it will not be random or temporary.  
 It will be because I am ready.
 
 <br><br>
 
 I am building so that one day I can take you with me into something permanent.  
-A life where we grow together support each other and build something peaceful loyal and lasting.
+A life where we grow together support each other and create something peaceful loyal and lasting.
 
 <br><br>
 
@@ -188,11 +190,11 @@ What I feel for you is sincere.
 <div class="page hidden" id="p3">
   <div class="frame">
     <h2>My promises to you 💗</h2>
-    <p>
+    <p style="line-height:1.8;">
 I promise to treat you with respect and softness.  
 I promise to value your feelings and protect your heart.  
 I promise to continue growing into the best version of myself.  
-I promise to build not just dream.
+I promise to build with intention not just dream.
     </p>
 
     <button class="yes" onclick="go(3,4)">Final message 💕</button>
@@ -203,19 +205,19 @@ I promise to build not just dream.
   <div class="frame">
     <h1 class="glow">Omri ❤️</h1>
 
-    <h3 style="margin-top:20px;">
-I wanted to add your pictures here but you blocked me on Snapchat so I had to imagine your smile instead 😂  
-Even without pictures you live beautifully in my thoughts.  
+    <h3 style="margin-top:25px; line-height:1.8;">
+I wanted to add your pictures here but since you blocked me on Snapchat I had to imagine your smile instead.  
+Even without pictures you live clearly in my thoughts.  
 My care for you is real.  
 My intentions are serious.  
 And my heart is open.
     </h3>
 
-    <div style="font-size:60px;margin-top:25px;">🤗💞🤗</div>
+    <div style="font-size:60px;margin-top:30px;">🤗💞🤗</div>
 
-    <h2 style="margin-top:20px;">
+    <h2 style="margin-top:25px;">
 Nebghik Omri 💖  
-Maybe I will come sooner than you expect ❤️
+Maybe I will come sooner than you expect.
     </h2>
   </div>
 </div>
@@ -229,14 +231,14 @@ setInterval(()=>{
   e.innerHTML=icons[Math.floor(Math.random()*icons.length)];
   e.style.left=Math.random()*100+"vw";
   e.style.fontSize=(25+Math.random()*35)+"px";
-  e.style.animationDuration=(6+Math.random()*6)+"s";
+  e.style.animationDuration=(7+Math.random()*5)+"s";
   document.body.appendChild(e);
   setTimeout(()=>e.remove(),12000);
-},400);
+},500);
 
 function confettiBurst(){
   let items=["🎉","✨","💖","💕"];
-  for(let i=0;i<40;i++){
+  for(let i=0;i<35;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.innerHTML=items[Math.floor(Math.random()*items.length)];
@@ -249,20 +251,20 @@ function confettiBurst(){
 }
 
 function yesClick(){
-  let music = document.getElementById("bgMusic");
-  music.volume = 0.5;
+  let music=document.getElementById("bgMusic");
+  music.volume=0.5;
   music.play();
   confettiBurst();
   setTimeout(()=>go(1,2),800);
 }
 
 function moveNo(){
-  let btn = document.getElementById("noBtn");
+  let btn=document.getElementById("noBtn");
   btn.style.position="absolute";
   btn.style.left=Math.random()*70+"%";
   btn.style.top=Math.random()*60+"%";
-  btn.style.transform="scale(0.8)";
-  document.getElementById("noText").innerText="Hmm are you sure 😏";
+  btn.style.transform="scale(0.9)";
+  document.getElementById("noText").innerText="Are you sure 😏";
 }
 
 function go(a,b){
